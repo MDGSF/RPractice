@@ -1,0 +1,8 @@
+v <- c(2, 4, 6, 9)
+t <- c(1, 4, 7, 9)
+print(v > t)
+print(v < t)
+print(v == t)
+print(v != t)
+print(v >= t)
+print(v <= t)
