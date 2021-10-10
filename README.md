@@ -22,7 +22,19 @@ http://mirrors.opencas.cn/cran/
 在 R 的交互式终端中执行：
 options(repos=structure(c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/")))
 
+或者修改配置文件：/usr/lib/R/etc/Rprofile.site
+local({
+  r <- getOption("repos")
+  r["CRAN"] <- "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"
+  options(repos = r)
+})
+
+
 然后执行 install.packages() 安装包的时候，就默认使用国内镜像了
+
+apt install libcurl4-openssl-dev
+apt install libgmp3-dev
+apt install libmpfr-dev
 
 install.packages(c("agricolae", "aplpack", "BSDA", "car", "corrgram", "DescTools"))
 install.packages(c("doBy", "e1071", "fmsb", "forecast", "ggplot2", "gmodels"))
@@ -86,9 +98,10 @@ apt install gnupg
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553
 apt update
 apt upgrade
-apt install libcurl4-openssl-dev
 
 apt install apt-transport-https ca-certificates
 debian清华源镜像：https://mirrors.tuna.tsinghua.edu.cn/help/debian/
+
+apt install vim
 ```
 
