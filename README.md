@@ -77,6 +77,15 @@ docker container create \
   --mount type=bind,source=/home/huangjian/git/huangjian/RPractice,target=/RPractice \
   r-base:4.1.1 bash
 
+使用主机的 x11 显示图形功能
+export DISPLAY=:0
+xhost +
+docker run -ti --rm \
+  -e DISPLAY=$DISPLAY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  r-base
+xhost -
+
 进入容器
 docker exec -i hj-r4.1.1 bash
 
